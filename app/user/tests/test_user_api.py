@@ -124,7 +124,7 @@ class PrivateUserApiTest(TestCase):
         self.user = create_user(
             name="Test Name", email="test@example.com", password="password123"
         )
-        self.client = APIClient
+        self.client = APIClient()
         self.client.force_authenticate(user=self.user)
 
     def test_retive_profile_success(self):
@@ -142,8 +142,8 @@ class PrivateUserApiTest(TestCase):
         self.assertEqual(res.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
     def test_update_user_profile(self):
-        """Test updating user profile"""
-        payload = {"name": "updated name", "password": "newPassword123"}
+        """Test updating the user profile for the authenticated user."""
+        payload = {"name": "Updated name", "password": "newpassword123"}
 
         res = self.client.patch(ME_URL, payload)
 
