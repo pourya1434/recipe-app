@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # local
     "core.apps.CoreConfig",
     "user.apps.UserConfig",
+    "recipe.apps.RecipeConfig",
     # 3rd party
     "rest_framework",
     "rest_framework.authtoken",
